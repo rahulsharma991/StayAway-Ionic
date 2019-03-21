@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-searchbar placeholder="Search" [(ngModel)]="queryText" (ionInput)="update()"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-fab vertical="bottom" horizontal="end" >
+    <ion-fab-button size="small"  (click)="openModal()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
+<ion-content>
+
+       
+
+      <div class='error' *ngIf="show">
+          <ion-icon  style="font-size: 3em; margin-right:3px;" name="sad"></ion-icon>
+          <p >Opps!!!</p>    
+          </div>
+    
+          
+  <ion-card id="card" *ngFor="let item of (array)?.slice().reverse(); let i=index; let last = last;">
+      <div *ngIf="item?.message.toString().includes(queryText)">
+  <ion-card-content id="content">
+    <p>{{item.message}}</p>
+    <p><strong>Comment:</strong> {{item.comment}}</p>
+    <p><i>Submitted by {{item.email}} </i></p>
+  </ion-card-content>
+
+  <ion-row>
+    <ion-col>
+      <ion-button color="primary" fill="clear"  (click)="spam(item, item.key)">
+        <ion-icon name="thumbs-up"></ion-icon>
+        <div>{{item.spam_count.toString().split(',').length - 1}}</div>
+      </ion-button>
+    </ion-col>
+
+    <ion-col>
+      <ion-button color="primary" fill="clear"  (click)="non_spam(item, item.key)">
+        <ion-icon name="thumbs-down" ></ion-icon>
+        <div>{{item.non_spam_count.toString().split(',').length - 1}}</div>
+      </ion-button>
+    </ion-col>
+
+    <ion-col>
+      <ion-button fill="clear">
+        <ion-icon name="time"></ion-icon>
+        <div>{{item.timestamp.substr(5, 11)}}</div>
+      </ion-button>
+    </ion-col>
+
+  </ion-row>
+
+  <!--call loading controller to close after last element is loaded-->
+      {{closeLoading(last)}}
+
+      </div>
+</ion-card>
+
+</ion-content>

@@ -1,0 +1,53 @@
+
+
+
+  <ion-header padding>
+      <ion-buttons slot="start">
+          <ion-button (click)="closeModal()" fill="clear">
+              <ion-icon name="arrow-round-back"></ion-icon>
+             
+          </ion-button>
+          <div class="title">Report a phone number</div>
+     
+      </ion-buttons>
+    </ion-header>
+  
+
+  
+  <ion-content padding>
+  
+        <ion-item>
+        
+          <ion-input [(ngModel)]="phoneDetails.phone" required="required" placeholder="Enter mobile number (919999999999)"></ion-input>
+        </ion-item>
+  
+        <ion-item>
+        
+          <ion-input [(ngModel)]="phoneDetails.comment" required="required" type="text" placeholder="Add your Comment Here"></ion-input>
+        </ion-item>
+  
+      <div style="padding-top:30px;"></div>
+  
+      <ion-list>
+      <ion-radio-group>
+        <ion-list-header>
+          Select your option
+        </ion-list-header>
+  
+        <ion-item>
+          <ion-label>Spam</ion-label>
+          <ion-radio checked="true" (click)="selectChoice('Spam')" value="spam"></ion-radio>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label>Not spam</ion-label>
+          <ion-radio (click)="selectChoice('Not spam')" value="not spam"></ion-radio>
+        </ion-item>
+        </ion-radio-group>
+      </ion-list><br><br>
+      <div align="center">
+        <ion-button  color="primary" shape="round" (click)="submit()">Submit</ion-button>
+      </div>
+  
+  </ion-content>
+  

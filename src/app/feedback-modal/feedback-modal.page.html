@@ -1,0 +1,42 @@
+
+
+
+<ion-header padding>
+  
+      <ion-buttons slot="start">
+        <ion-button (click)="closeModal()" fill="clear">
+            <ion-icon name="arrow-round-back"></ion-icon>
+           
+        </ion-button>
+        <div class="title">Feed us something</div>
+   
+      </ion-buttons>
+
+     
+</ion-header>
+
+
+<ion-content padding>
+
+      <ion-item>
+        
+        <ion-input value={{feedbackDetails?.email}} disabled="disabled" [(ngModel)]="feedbackDetails.email" required="required" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+      
+        <ion-textarea [(ngModel)]="feedbackDetails.message" required="required" placeholder="Enter your message"></ion-textarea>
+      </ion-item>
+
+
+
+    <div style="padding-top:30px;"></div>
+
+    <div align="center">
+      <ion-button shape="round" color="primary"  (click)="submit()">Submit</ion-button>
+    </div><br><br><br><br><br>
+    <div align="center">
+        <img src="../../assets/imgs/robomx.png" height="70px" width="70px"><br>
+        <img src="../../assets/imgs/homeLogo.png" height="100%" width="50%">
+        </div>
+</ion-content>

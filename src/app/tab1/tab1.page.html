@@ -1,0 +1,72 @@
+<div class="home" >
+  
+</div>
+<ion-content *ngIf="!classReference?.loggedin">
+
+  
+  <h3 *ngIf="!loggedin" align="center" color="light" padding-top="30px" padding-bottom="30px">
+    Welcome<br/>
+    to<br/>
+    Stay Away Mobile App<br/>
+  </h3>
+  <h4 text-center="center" padding-bottom="30px">
+    Report spam messages and scam callers
+  </h4>
+  <p ion-text align="center" padding-bottom="30px">
+    Use Google account to login/register
+  </p>
+  <div align="center" padding-bottom="30px">
+    <ion-button (click)="googleLogin()" ion-button color="primary" shape="round"><ion-icon name="logo-google"></ion-icon>&nbsp;Google</ion-button>
+  </div>
+<br><br>
+
+
+  <div align="center">
+      <img src="../../assets/imgs/robomx.png" height="70px" width="70px"><br>
+      <img src="../../assets/imgs/homeLogo.png" height="100%" width="50%">
+      </div>
+  <p align="center">
+    A RoboMx creation.
+  </p>
+
+
+</ion-content>
+
+<ion-content  *ngIf="classReference?.loggedin">
+<h3 text-center="center" padding-top="10px">
+Welcome
+</h3>
+<div align="center">
+  <ion-avatar>
+    <img  [src]="profilepic" alt=""/>
+  </ion-avatar>
+</div>
+
+  <div text-center="center" padding-top="30px">
+    <h4>
+      {{ name }}
+    </h4>
+    <p>
+      {{ email}}
+    </p>
+  </div>
+  <div align="center" padding-bottom="30px">
+    <ion-button color="primary" round (click)="signOut()"> Log out</ion-button>
+  </div>
+
+  <div align="center" padding-bottom="10px">
+      <ion-button  shape="round" color="primary" (click)="feedback()"> Submit a feedback </ion-button>
+    </div>
+  
+<br>
+
+<div align="center">
+    <img src="../../assets/imgs/robomx.png" height="70px" width="70px"><br/>
+    <img src="../../assets/imgs/homeLogo.png" height="100%" width="50%">
+</div>
+    <p align="center" >        
+      A RoboMx creation.
+    </p>
+   
+
+</ion-content>
